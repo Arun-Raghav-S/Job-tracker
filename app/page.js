@@ -1,7 +1,7 @@
 // app/page.js
 
 'use client';
-
+import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
 
 export default function Home() {
@@ -14,10 +14,12 @@ export default function Home() {
   if (session) {
     return (
       <div>
-        <p>Signed in as {session.user.email}</p>
-        <button onClick={() => signOut()}>Sign out</button>
-        <a href="/dashboard">Go to Dashboard</a>
-      </div>
+      <p>Signed in as {session.user.email}</p>
+      <button onClick={() => signOut()}>Sign out</button>
+      <Link href="/dashboard">
+        Go to Dashboard
+      </Link>
+    </div>
     );
   }
 

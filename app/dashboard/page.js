@@ -187,7 +187,7 @@ export default function Dashboard() {
           <h2 className="text-xl font-bold mb-6">Sent Emails</h2>
           {isLoading ? (
             <Skeleton className="w-full h-48" />
-          ) : emails.length === 0 ? (
+          ) : emails && emails.length === 0 ? (
             <p>No emails sent yet.</p>
           ) : (
             <div className="overflow-x-auto">
@@ -201,7 +201,7 @@ export default function Dashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {emails.map((email) => (
+                  {emails && emails.map((email) => (
                     <tr key={email.id} className="border-t">
                       <td className="px-4 py-2">{email.toEmail}</td>
                       <td className="px-4 py-2">{email.subject}</td>

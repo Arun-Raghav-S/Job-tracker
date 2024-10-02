@@ -5,6 +5,7 @@ import { google } from 'googleapis';
 
 export default async function handler(req, res) {
   const session = await getSession({ req });
+  console.log('Session:', session);
 
   if (!session) {
     res.status(401).json({ error: 'Unauthorized' });
